@@ -8,6 +8,11 @@
     Contains some useful utility functions
 """
 
+PROC_USAGE = "Insufficient arguments!\n\n" \
+             "Format: python3 initialize_processing.py [arg]\n" \
+             "\targ - can be one of the following:\n" \
+             "\t\t-generate: will generate a list of random ego nodes for processing" \
+             "\t\t-process: something else"
 
 def write_output(item, output_path):
     """
