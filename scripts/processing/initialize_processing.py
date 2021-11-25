@@ -32,7 +32,7 @@ arg = sys.argv[1]
 node_path = definitions.OUTPUT_PATH + "\\" + "selected_nodes.txt"
 
 # Generate list of random ego nodes for processing
-if (arg == "-egenrate"):
+if (arg == "-generate"):
 
     id_path = collect_ids()
     node_list = random_select(id_path)
@@ -41,5 +41,16 @@ if (arg == "-egenrate"):
 elif (arg == "-process"):
 
     data = read_file(node_path)
+    graph_path = definitions.OUTPUT_PATH + "\\"
 
-    net = create_network(data[0])
+    for d in data:
+
+        graph_file = graph_path + f'{d}_ego.txt'
+
+        net = create_network(d)
+        net.SaveEdgeList(graph_file, f'Ego Network for ego node {d}')
+
+else:
+
+    print("Invalid command!")
+    sys.exit(-1)
