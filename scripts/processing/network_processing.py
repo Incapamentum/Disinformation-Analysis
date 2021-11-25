@@ -67,3 +67,55 @@ def random_select(file_name):
         rand_nodes.append(collect.pop())
 
     return rand_nodes
+
+
+def create_network(ego_node):
+    """
+        Constructs the network around the specified ego_node
+
+        :param ego_node: ID of the ego node
+        :return:
+    """
+
+    # Edges contain node information
+    ego_edges = definitions.GPLUS_DATA + "\\" + ego_node + ".edges"
+
+    nodes = []
+    edges = []
+
+    # Aggregating all nodes into a single structure
+    with open(ego_edges, "r") as f:
+        for line in f:
+            data = line.split()
+            nodes += data
+
+    # Removing dupes in nodes
+    nodes = list(set(nodes))
+
+    # Aggregating all edges into a single structure
+    with open(ego_edges, "r") as f:
+        for line in f:
+            data = line.split()
+            edges.append(data)
+
+    # Useful mapping to ensure each generated ID can
+    # be traced back to its file original
+    id_to_node = {}
+
+    # Creating network
+    ego_net = snap.TNEANet.New()
+
+    # Adding ego node to network
+    id_to_node[ego_node] = ego_net.AddNode(-1)
+
+    # Adding the rest of nodes to network, connecting
+    # them to ego node as well
+    for n in nodes:
+        id_to_node[n] = ego_net.AddNode(-1)
+        ego_net.AddEdge(id_to_node[ego_node], id_to_node[n])
+
+    # Connecting all other nodes according to edge file
+    for e in edges:
+        ego_net.AddEdge(id_to_node[e[0]], id_to_node[e[1]])
+
+    return ego_net
