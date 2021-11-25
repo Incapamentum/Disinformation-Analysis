@@ -14,7 +14,26 @@ PROC_USAGE = "Insufficient arguments!\n\n" \
              "\t\t-generate: will generate a list of random ego nodes for processing" \
              "\t\t-process: something else"
 
-def write_output(item, output_path):
+
+def read_file(input_path):
+    """
+        Reads contents of a file, storing data in a list
+
+        :param input_path: Path to read file from
+        :return data: Contains the ego node data
+    """
+
+    nodes = []
+
+    with open(input_path, "r") as f:
+        for line in f:
+            data = line.split()
+            nodes.append(data[0])
+
+    return nodes
+
+
+def write_file(item, output_path):
     """
         Given an item, writes contents of it
         to a file specified by output_path
