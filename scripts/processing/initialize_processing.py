@@ -38,6 +38,7 @@ if (arg == "-generate"):
     node_list = random_select(id_path)
     write_file(node_list, node_path)
 
+# Process the input graphs
 elif (arg == "-process"):
 
     data = read_file(node_path)
@@ -50,6 +51,7 @@ elif (arg == "-process"):
         net = create_network(d)
         net.SaveEdgeList(graph_file, f'Ego Network for ego node {d}')
 
+# No valid command was passed
 else:
 
     print("Invalid command!")
