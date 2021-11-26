@@ -12,7 +12,6 @@
 
 import definitions
 import os
-import snap
 import sys
 
 from network_processing import collect_ids, random_select, create_network

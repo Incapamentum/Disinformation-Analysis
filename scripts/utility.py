@@ -8,10 +8,19 @@
     Contains some useful utility functions
 """
 
+ANAL_USAGE = "Insufficient arguments!\n\n" \
+             "Format: python3 initialize_analysiss.py [arg] [option]\n" \
+             "\targ - can be one of the following:\n" \
+             "\t\t-dist - denotes the degree distribution\n" \
+             "\toption - can be one of the following:\n" \
+             "\t\tdeg - obtain the degree distribution of the network\n" \
+             "\t\tin - obtain the in-degree distribution of the network\n" \
+             "\t\tout - obtain the out-degree distribution of the network\n" \
+
 PROC_USAGE = "Insufficient arguments!\n\n" \
              "Format: python3 initialize_processing.py [arg]\n" \
              "\targ - can be one of the following:\n" \
-             "\t\t-generate: will generate a list of random ego nodes for processing" \
+             "\t\t-generate: will generate a list of random ego nodes for processing\n" \
              "\t\t-process: something else"
 
 
