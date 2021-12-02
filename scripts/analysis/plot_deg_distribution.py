@@ -20,12 +20,12 @@ import numpy as np
 import scipy.stats as st
 
 from network_analysis import calculate_percent
-from scripts.utility import ANAL_USAGE
+from scripts.utility import PLOT_USAGE
 from scripts.utility import read_file
 
 if (len(sys.argv) != 3):
     print("ERROR!")
-    print(ANAL_USAGE)
+    print(PLOT_USAGE)
     sys.exit(-1)
 
 # Creating output folder if one doesn't already exist
@@ -35,9 +35,14 @@ if (not os.path.isdir(definitions.OUTPUT_PATH)):
 arg = sys.argv[1]
 opt = sys.argv[2]
 
-plot_path = definitions.OUTPUT_PATH + "\\" + "plots"
-graph_path = definitions.OUTPUT_PATH + "\\"
-node_path = definitions.OUTPUT_PATH + "\\" + "selected_nodes.txt"
+plot_path = definitions.OUTPUT_PATH + "\\plots"
+graph_path = definitions.EGO_PATH
+node_path = definitions.OUTPUT_PATH + "\\selected_nodes.txt"
+
+# print(plot_path)
+# print(graph_path)
+# print(node_path)
+# sys.exit()
 
 # Creating image folder if one doesn't already exist
 if (not os.path.isdir(plot_path)):
@@ -65,8 +70,7 @@ if (arg == "-dist"):
 
     for d in data:
 
-        ego_file = f'{d}_ego.txt'
-        net_file = graph_path + ego_file
+        net_file = graph_path + f'\\{d}_ego.txt'
 
         net = snap.LoadEdgeList(snap.TNEANet, net_file, 0, 1, '\t')
         total_nodes = net.GetNodes()

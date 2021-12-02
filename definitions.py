@@ -13,6 +13,12 @@ import os
 
 ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-DATA_PATH = ROOT_PATH + "\\" + "Data"
-GPLUS_DATA = DATA_PATH + "\\" + "gplus_networks"
-OUTPUT_PATH = ROOT_PATH + "\\" + "output"
+# Paths related to data for processing
+DATA_PATH = ROOT_PATH + "\\Data"
+GPLUS_DATA = DATA_PATH + "\\gplus_networks"
+
+# Paths related to output
+OUTPUT_PATH = ROOT_PATH + "\\output"
+HUB_PATH = OUTPUT_PATH + "\\hubs"
+EGO_PATH = OUTPUT_PATH + "\\ego_nets"
+PLOTS_PATH = OUTPUT_PATH + "\\plots"

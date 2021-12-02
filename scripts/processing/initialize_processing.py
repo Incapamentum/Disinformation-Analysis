@@ -7,6 +7,12 @@
 
     Handles the initialization of processing the
     network files found in the Data subdirectory
+
+    Depending on the option that is passed, will
+    either generate a list of random ego nodes
+    that will then be used for processing in
+    creating a network that is then saved as a
+    .txt file
 """
 
 
@@ -23,12 +29,16 @@ if (len(sys.argv) != 2):
     print(PROC_USAGE)
     sys.exit(-1)
 
-# Creating output folder if one doesn't already exist
+# Creating output directory if one doesn't already exist
 if (not os.path.isdir(definitions.OUTPUT_PATH)):
     os.makedirs(definitions.OUTPUT_PATH)
 
+# Creating the specific output directory this script uses
+if (not os.path.isdir(definitions.EGO_PATH)):
+    os.makedirs(definitions.EGO_PATH)
+
 arg = sys.argv[1]
-node_path = definitions.OUTPUT_PATH + "\\" + "selected_nodes.txt"
+node_path = definitions.OUTPUT_PATH + "\\selected_nodes.txt"
 
 # Generate list of random ego nodes for processing
 if (arg == "-generate"):
@@ -41,11 +51,11 @@ if (arg == "-generate"):
 elif (arg == "-process"):
 
     data = read_file(node_path)
-    graph_path = definitions.OUTPUT_PATH + "\\"
+    graph_path = definitions.EGO_PATH
 
     for d in data:
 
-        graph_file = graph_path + f'{d}_ego.txt'
+        graph_file = graph_path + f'\\{d}_ego.txt'
 
         net = create_network(d)
         net.SaveEdgeList(graph_file, f'Ego Network for ego node {d}')

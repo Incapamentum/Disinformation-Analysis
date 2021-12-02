@@ -10,7 +10,8 @@
     Data directory
 """
 
-import definitions
+import definitions as d
+
 import snap
 
 from os import listdir
@@ -27,14 +28,14 @@ def collect_ids():
             Path of the file containing node IDss
     """
 
-    data_path = definitions.GPLUS_DATA
-    output_file = definitions.OUTPUT_PATH + "\\" + "node_ids.txt"
+    data_path = d.GPLUS_DATA
+    output_file = d.OUTPUT_PATH + "\\" + "node_ids.txt"
 
     file_list = [f for f in listdir(data_path) if isfile(join(data_path, f))]
 
     node_ids = []
 
-    for i in range(0, len(file_list), 2):
+    for i in range(0, len(file_list)):
 
         collect = file_list[i].split(sep=".")
         node_ids.append(collect[0])
@@ -78,7 +79,7 @@ def create_network(ego_node):
     """
 
     # Edges contain node information
-    ego_edges = definitions.GPLUS_DATA + "\\" + ego_node + ".edges"
+    ego_edges = d.GPLUS_DATA + f'\\{ego_node}.edges'
 
     nodes = []
     edges = []

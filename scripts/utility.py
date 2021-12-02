@@ -8,8 +8,8 @@
     Contains some useful utility functions
 """
 
-ANAL_USAGE = "Insufficient arguments!\n\n" \
-             "Format: python3 initialize_analysiss.py [arg] [option]\n" \
+PLOT_USAGE = "Insufficient arguments!\n\n" \
+             "Format: python3 plot_deg_distribution.py [arg] [option]\n" \
              "\targ - can be one of the following:\n" \
              "\t\t-dist - denotes the degree distribution\n" \
              "\toption - can be one of the following:\n" \
