@@ -39,11 +39,6 @@ plot_path = definitions.OUTPUT_PATH + "\\plots"
 graph_path = definitions.EGO_PATH
 node_path = definitions.OUTPUT_PATH + "\\selected_nodes.txt"
 
-# print(plot_path)
-# print(graph_path)
-# print(node_path)
-# sys.exit()
-
 # Creating image folder if one doesn't already exist
 if (not os.path.isdir(plot_path)):
     os.makedirs(plot_path)
