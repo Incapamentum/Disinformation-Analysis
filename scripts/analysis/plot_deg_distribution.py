@@ -3,9 +3,11 @@
     UCF ID: 3520029
     Course: COP 5537
 
-    File name: initialize_analysis.py
+    File name: plot_deg_distribution.py
 
-
+    Plots the different degree distributions of each egonet. Three
+    types of plots are created: one for in-degree, another for out-degree,
+    and a third for total degree
 """
 
 import definitions
@@ -92,7 +94,7 @@ if (arg == "-dist"):
 
         elif (opt == "in"):
 
-            image_name = in_path + "\\" + f'{d}_ideg.png'
+            image_name = in_path + "\\" + f'{d}_ideg'
             title = f'In-Degree Distribution of {d}'
 
             in_deg_count = net.GetInDegCnt()
@@ -131,6 +133,10 @@ if (arg == "-dist"):
 
             for n in num_nodes:
                 p.append(calculate_percent(n, total_nodes))
+
+        else:
+            print("Invalid option!")
+            sys.exit(-1)
 
         # Setting up density function
         density = np.vstack([deg_cnt, p])
