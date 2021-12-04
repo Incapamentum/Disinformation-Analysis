@@ -17,8 +17,11 @@ ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = ROOT_PATH + "\\Data"
 GPLUS_DATA = DATA_PATH + "\\gplus_networks"
 
-# Paths related to output
+# Main output path
 OUTPUT_PATH = ROOT_PATH + "\\output"
-HUB_PATH = OUTPUT_PATH + "\\hubs"
+
+# Subdirectory output paths
 EGO_PATH = OUTPUT_PATH + "\\ego_nets"
+HUB_PATH = OUTPUT_PATH + "\\hubs"
 PLOTS_PATH = OUTPUT_PATH + "\\plots"
+MATRIX_PATH = OUTPUT_PATH + "\\matrix"

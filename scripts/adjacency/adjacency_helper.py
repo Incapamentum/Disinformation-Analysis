@@ -21,7 +21,7 @@ def list_to_file(l, file_name):
 
     size = len(l)
 
-    with open(file_name, "a") as f:
+    with open(file_name, "w") as f:
 
         for i in range(size):
 
