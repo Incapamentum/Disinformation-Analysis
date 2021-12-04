@@ -10,8 +10,8 @@
     and a third for total degree
 """
 
-import definitions
 import os
+import paths
 import snap
 import sys
 
@@ -29,22 +29,22 @@ if (len(sys.argv) != 3):
     sys.exit(-1)
 
 # Creating output folder if one doesn't already exist
-if (not os.path.isdir(definitions.OUTPUT_PATH)):
-    os.makedirs(definitions.OUTPUT_PATH)
+if (not os.path.isdir(paths.OUTPUT_PATH)):
+    os.makedirs(paths.OUTPUT_PATH)
 
 arg = sys.argv[1]
 opt = sys.argv[2]
 
-graph_path = definitions.EGO_PATH
+graph_path = paths.EGO_PATH
 
 # Creating image folder if one doesn't already exist
-if (not os.path.isdir(definitions.PLOTS_PATH)):
-    os.makedirs(definitions.PLOTS_PATH)
+if (not os.path.isdir(paths.PLOTS_PATH)):
+    os.makedirs(paths.PLOTS_PATH)
 
 # Creating other subdirectories within image folder
-deg_path = definitions.PLOTS_PATH + "\\" + "degree"
-in_path = definitions.PLOTS_PATH + "\\" + "in_degree"
-out_path = definitions.PLOTS_PATH + "\\" + "out_degree"
+deg_path = paths.PLOTS_PATH + "\\" + "degree"
+in_path = paths.PLOTS_PATH + "\\" + "in_degree"
+out_path = paths.PLOTS_PATH + "\\" + "out_degree"
 
 if (not os.path.isdir(deg_path)):
     os.makedirs(deg_path)
@@ -59,7 +59,7 @@ if (not os.path.isdir(out_path)):
 if (arg == "-dist"):
 
     # Setting up
-    data = read_file(definitions.NODE_FILE)
+    data = read_file(paths.NODE_FILE)
 
     for d in data:
 

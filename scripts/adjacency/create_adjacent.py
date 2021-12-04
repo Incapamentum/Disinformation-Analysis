@@ -9,29 +9,29 @@
     matrix representative of the network
 """
 
-import definitions
 import os
+import paths
 
 from adjacency_helper import list_to_file
 from scripts.utility import read_file
 
 # Creating output folder if one doesn't already exist
-if (not os.path.isdir(definitions.OUTPUT_PATH)):
-    os.makedirs(definitions.OUTPUT_PATH)
+if (not os.path.isdir(paths.OUTPUT_PATH)):
+    os.makedirs(paths.OUTPUT_PATH)
 
 # graph_path = definitions.EGO_PATH
 
 # Creating matrix folder if one doesn't already exist
-if (not os.path.isdir(definitions.MATRIX_PATH)):
-    os.makedirs(definitions.MATRIX_PATH)
+if (not os.path.isdir(paths.MATRIX_PATH)):
+    os.makedirs(paths.MATRIX_PATH)
 
 # Setting up in creating adjacency matrix
-data = read_file(definitions.NODE_FILE)
+data = read_file(paths.NODE_FILE)
 
 for d in data:
 
-    net_file = definitions.EGO_PATH + f'\\{d}_ego.txt'
-    adjacency_file = definitions.MATRIX_PATH + f'\\{d}_adjacency.txt'
+    net_file = paths.EGO_PATH + f'\\{d}_ego.txt'
+    adjacency_file = paths.MATRIX_PATH + f'\\{d}_adjacency.txt'
 
     with open(net_file, "r") as f:
 

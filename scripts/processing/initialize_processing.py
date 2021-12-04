@@ -16,8 +16,8 @@
 """
 
 
-import definitions
 import os
+import paths
 import sys
 
 from network_processing import collect_ids, random_select, create_network
@@ -30,15 +30,15 @@ if (len(sys.argv) != 2):
     sys.exit(-1)
 
 # Creating output directory if one doesn't already exist
-if (not os.path.isdir(definitions.OUTPUT_PATH)):
-    os.makedirs(definitions.OUTPUT_PATH)
+if (not os.path.isdir(paths.OUTPUT_PATH)):
+    os.makedirs(paths.OUTPUT_PATH)
 
 # Creating the specific output directory this script uses
-if (not os.path.isdir(definitions.EGO_PATH)):
-    os.makedirs(definitions.EGO_PATH)
+if (not os.path.isdir(paths.EGO_PATH)):
+    os.makedirs(paths.EGO_PATH)
 
 arg = sys.argv[1]
-node_path = definitions.OUTPUT_PATH + "\\selected_nodes.txt"
+node_path = paths.OUTPUT_PATH + "\\selected_nodes.txt"
 
 # Generate list of random ego nodes for processing
 if (arg == "-generate"):
@@ -51,7 +51,7 @@ if (arg == "-generate"):
 elif (arg == "-process"):
 
     data = read_file(node_path)
-    graph_path = definitions.EGO_PATH
+    graph_path = paths.EGO_PATH
 
     for d in data:
 

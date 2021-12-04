@@ -9,28 +9,28 @@
     nodes that connect to a vast majority of the network
 """
 
-import definitions
 import json
 import os
+import paths
 import snap
 
 import statistics as stat
 
 from scripts.utility import read_file
 
-graph_path = definitions.OUTPUT_PATH + "\\"
-hub_file = definitions.HUB_PATH + "\\" + "ego_hubs.json"
+graph_path = paths.OUTPUT_PATH + "\\"
+hub_file = paths.HUB_PATH + "\\" + "ego_hubs.json"
 
 # Creating output folder if one doesn't already exist
-if (not os.path.isdir(definitions.OUTPUT_PATH)):
-    os.makedirs(definitions.OUTPUT_PATH)
+if (not os.path.isdir(paths.OUTPUT_PATH)):
+    os.makedirs(paths.OUTPUT_PATH)
 
 # Creating a hub subdirectory within the output path
-if (not os.path.isdir(definitions.HUB_PATH)):
-    os.makedirs(definitions.HUB_PATH)
+if (not os.path.isdir(paths.HUB_PATH)):
+    os.makedirs(paths.HUB_PATH)
 
 # Testing stuff out
-data = read_file(definitions.NODE_FILE)
+data = read_file(paths.NODE_FILE)
 
 ego_hubs = {}
 

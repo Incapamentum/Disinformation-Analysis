@@ -5,8 +5,7 @@
 
     File name: definitions.py
 
-    Contains some global definitions used
-    by multiple files throughout the project
+    Contains various global path variables
 """
 
 import os
