@@ -35,18 +35,16 @@ if (not os.path.isdir(definitions.OUTPUT_PATH)):
 arg = sys.argv[1]
 opt = sys.argv[2]
 
-plot_path = definitions.OUTPUT_PATH + "\\plots"
 graph_path = definitions.EGO_PATH
-node_path = definitions.OUTPUT_PATH + "\\selected_nodes.txt"
 
 # Creating image folder if one doesn't already exist
-if (not os.path.isdir(plot_path)):
-    os.makedirs(plot_path)
+if (not os.path.isdir(definitions.PLOTS_PATH)):
+    os.makedirs(definitions.PLOTS_PATH)
 
 # Creating other subdirectories within image folder
-deg_path = plot_path + "\\" + "degree"
-in_path = plot_path + "\\" + "in_degree"
-out_path = plot_path + "\\" + "out_degree"
+deg_path = definitions.PLOTS_PATH + "\\" + "degree"
+in_path = definitions.PLOTS_PATH + "\\" + "in_degree"
+out_path = definitions.PLOTS_PATH + "\\" + "out_degree"
 
 if (not os.path.isdir(deg_path)):
     os.makedirs(deg_path)
@@ -61,7 +59,7 @@ if (not os.path.isdir(out_path)):
 if (arg == "-dist"):
 
     # Setting up
-    data = read_file(node_path)
+    data = read_file(definitions.NODE_FILE)
 
     for d in data:
 

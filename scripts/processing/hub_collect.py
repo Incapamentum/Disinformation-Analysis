@@ -19,20 +19,18 @@ import statistics as stat
 from scripts.utility import read_file
 
 graph_path = definitions.OUTPUT_PATH + "\\"
-node_path = definitions.OUTPUT_PATH + "\\" + "selected_nodes.txt"
-hub_path = definitions.OUTPUT_PATH + "\\" + "hubs"
-hub_file = hub_path + "\\" + "ego_hubs.json"
+hub_file = definitions.HUB_PATH + "\\" + "ego_hubs.json"
 
 # Creating output folder if one doesn't already exist
 if (not os.path.isdir(definitions.OUTPUT_PATH)):
     os.makedirs(definitions.OUTPUT_PATH)
 
 # Creating a hub subdirectory within the output path
-if (not os.path.isdir(hub_path)):
-    os.makedirs(hub_path)
+if (not os.path.isdir(definitions.HUB_PATH)):
+    os.makedirs(definitions.HUB_PATH)
 
 # Testing stuff out
-data = read_file(node_path)
+data = read_file(definitions.NODE_FILE)
 
 ego_hubs = {}
 

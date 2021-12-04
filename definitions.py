@@ -20,8 +20,11 @@ GPLUS_DATA = DATA_PATH + "\\gplus_networks"
 # Main output path
 OUTPUT_PATH = ROOT_PATH + "\\output"
 
+# Files within the main output path
+NODE_FILE = OUTPUT_PATH + "\\selected_nodes.txt"
+
 # Subdirectory output paths
 EGO_PATH = OUTPUT_PATH + "\\ego_nets"
 HUB_PATH = OUTPUT_PATH + "\\hubs"
-PLOTS_PATH = OUTPUT_PATH + "\\plots"
 MATRIX_PATH = OUTPUT_PATH + "\\matrix"
+PLOTS_PATH = OUTPUT_PATH + "\\plots"

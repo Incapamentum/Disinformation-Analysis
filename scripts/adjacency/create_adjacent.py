@@ -19,20 +19,18 @@ from scripts.utility import read_file
 if (not os.path.isdir(definitions.OUTPUT_PATH)):
     os.makedirs(definitions.OUTPUT_PATH)
 
-# matrix_path = definitions.OUTPUT_PATH + "\\matrix"
-graph_path = definitions.EGO_PATH
-node_path = definitions.OUTPUT_PATH + "\\selected_nodes.txt"
+# graph_path = definitions.EGO_PATH
 
 # Creating matrix folder if one doesn't already exist
 if (not os.path.isdir(definitions.MATRIX_PATH)):
     os.makedirs(definitions.MATRIX_PATH)
 
 # Setting up in creating adjacency matrix
-data = read_file(node_path)
+data = read_file(definitions.NODE_FILE)
 
 for d in data:
 
-    net_file = graph_path + f'\\{d}_ego.txt'
+    net_file = definitions.EGO_PATH + f'\\{d}_ego.txt'
     adjacency_file = definitions.MATRIX_PATH + f'\\{d}_adjacency.txt'
 
     with open(net_file, "r") as f:
