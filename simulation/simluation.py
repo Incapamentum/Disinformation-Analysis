@@ -74,17 +74,12 @@ for d in data:
 
     # Disconnecting ego node from the rest of the hubs
     for h in hubs:
-        if (h == 0):
-            continue
         adjacency[0][h] = 0
-
-    # Initial list of active nodes are hub nodes
-    active = deepcopy(hubs)
 
     # Beginning post cycle
     for i in range(params.MAX_CYCLES):
 
-        for node in active:
+        for node in hubs:
 
             # Randomly selecting outgoing edges to spread post
             # contact
@@ -98,8 +93,6 @@ for d in data:
                 disinformation_coefficient[index] = sh.update_value(source_val, receive_val)
 
                 contact += 1
-
-        sh.add_propagators(active, disinformation_coefficient)
 
         # Record new disinformation average of network
         results[d].append(sh.average(disinformation_coefficient))

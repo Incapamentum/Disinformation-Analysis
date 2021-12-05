@@ -16,21 +16,6 @@ from random import choice
 from random import uniform
 
 
-def add_propagators(active_prop, d_c):
-    """
-        Adds propagators to the list of active ones
-        for further propagation of disinformation
-
-        :param active_prop: List of active propagators
-        :param d_c: The list of disinformation coefficients associated with every node
-        :return: Nothing
-    """
-
-    for i in range(len(d_c)):
-        if ((d_c[i] <= -0.5) and (i not in active_prop)):
-            active_prop.append(i)
-
-
 def average(lst):
     """
         Finds the average value of
