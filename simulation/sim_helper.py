@@ -121,23 +121,34 @@ def read_json(file_name):
 
 def update_value(source, receiver):
     """
+        Updates a value by adding loss
 
         :param source: Value determines the type of value update to perform
         :param receiver: Value to be updated
         :return:
     """
 
+    # No disinformation spread possible
     if (source >= 0.5):
         return receiver
 
-    # Denotes a vulnerable value
-    if ((receiver > -0.5) and (receiver <= 0.5)):
+    # Denotes possible spread of disinformation
+    if (source <= -0.5):
 
-        # Check to see if source will cause receiver to become more
-        # disinformed
-        if (source <= -0.5):
+        # Denotes a vulnerable value
+        if ((receiver > -0.5) and (receiver <= 0.5)):
             return receiver + MAX_LOSS
 
+        # Denotes value approaching saturation
+        if (receiver <= -0.5):
+
+            # Saturation has been reached
+            if ((receiver + MAX_LOSS) < -1):
+                return -1
+
+            return receiver + MAX_LOSS
+
+    # Default return
     return receiver
 
 
