@@ -11,6 +11,8 @@
 
 import json
 import os
+import sys
+
 import paths
 import snap
 
@@ -18,7 +20,6 @@ import statistics as stat
 
 from scripts.utility import read_file
 
-graph_path = paths.OUTPUT_PATH + "\\"
 hub_file = paths.HUB_PATH + "\\" + "ego_hubs.json"
 
 # Creating output folder if one doesn't already exist
@@ -29,15 +30,14 @@ if (not os.path.isdir(paths.OUTPUT_PATH)):
 if (not os.path.isdir(paths.HUB_PATH)):
     os.makedirs(paths.HUB_PATH)
 
-# Testing stuff out
 data = read_file(paths.NODE_FILE)
 
 ego_hubs = {}
 
 for d in data:
 
-    ego_file = f'{d}_ego.txt'
-    net_file = graph_path + ego_file
+    ego_file = f'\\{d}_ego.txt'
+    net_file = paths.EGO_PATH + ego_file
 
     net = snap.LoadEdgeList(snap.TNEANet, net_file, 0, 1, '\t')
 
