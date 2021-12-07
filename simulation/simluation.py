@@ -54,7 +54,8 @@ for d in data:
     # Setting up variables for each egonet
     hubs = hub_nodes[d]
 
-    results[d] = []
+    # Setting up JSON structure to save results to
+    results[d] = {"total_nodes": 0, "d_c": [], "total_sat": []}
     adj_file = p.MATRIX_PATH + f'\\{d}_adjacency.txt'
 
     adjacency = sh.populate_adjacency(adj_file)
@@ -69,8 +70,10 @@ for d in data:
     for h in hubs:
         disinformation_coefficient[h] = -1
 
-    # Saving disinformation coefficient average at time tick 0
-    results[d].append(sh.average(disinformation_coefficient))
+    # Recording information to results
+    results[d]["total_nodes"] = num_nodes
+    results[d]["total_sat"].append(disinformation_coefficient.count(-1))
+    results[d]["d_c"].append(sh.average(disinformation_coefficient))
 
     # Disconnecting ego node from the rest of the hubs
     for h in hubs:
@@ -95,7 +98,8 @@ for d in data:
                 contact += 1
 
         # Record new disinformation average of network
-        results[d].append(sh.average(disinformation_coefficient))
+        results[d]["total_sat"].append(disinformation_coefficient.count(-1))
+        results[d]["d_c"].append(sh.average(disinformation_coefficient))
 
 timer.end_time()
 timer.elapsed_time()
