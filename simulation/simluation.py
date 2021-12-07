@@ -15,11 +15,12 @@ import paths as p
 import os
 import sys
 
-from copy import deepcopy
 from datetime import timedelta
 from math import floor
 from math import log2
 from scripts.utility import read_file
+from scripts.utility import read_json
+from scripts.utility import write_json
 from timing import Timer
 
 # Creating output folder if one doesn't already exist
@@ -41,7 +42,7 @@ hub_file = p.HUB_PATH + "\\ego_hubs.json"
 results_file = p.RESULT_PATH + "\\sim_results.json"
 
 data = read_file(p.NODE_FILE)
-hub_nodes = sh.read_json(hub_file)
+hub_nodes = read_json(hub_file)
 
 results = {}
 
@@ -109,4 +110,4 @@ total_time = str(timedelta(seconds=timer.elapsed))
 print(f'Total execution time: {total_time}')
 
 # Write the results to a JSON file
-sh.write_json(results, results_file)
+write_json(results, results_file)

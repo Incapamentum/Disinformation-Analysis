@@ -104,21 +104,6 @@ def random_index(lst):
     return choice(index)
 
 
-def read_json(file_name):
-    """
-        Loads the contents written to a
-        JSON file
-
-        :param file_name: Name of JSON file
-        :return data: JSON data
-    """
-
-    with open(file_name, "r") as f:
-        data = json.loads(f.read())
-
-    return data
-
-
 def update_value(source, receiver):
     """
         Updates a value by adding loss
@@ -167,9 +152,3 @@ def uniform_populate(size):
         distribution.append(uniform(-1, 1))
 
     return distribution
-
-
-def write_json(data, file_name):
-
-    with open(file_name, "w") as f:
-        json.dump(data, f)

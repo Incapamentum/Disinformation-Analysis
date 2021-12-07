@@ -8,6 +8,8 @@
     Contains some useful utility functions
 """
 
+import json
+
 PLOT_USAGE = "Insufficient arguments!\n\n" \
              "Format: python3 plot_deg_distribution.py [arg] [option]\n" \
              "\targ - can be one of the following:\n" \
@@ -42,6 +44,21 @@ def read_file(input_path):
     return nodes
 
 
+def read_json(file_name):
+    """
+        Loads the contents written to a
+        JSON file
+
+        :param file_name: Name of JSON file
+        :return data: JSON data
+    """
+
+    with open(file_name, "r") as f:
+        data = json.loads(f.read())
+
+    return data
+
+
 def write_file(item, output_path):
     """
         Given an item, writes contents of it
@@ -62,3 +79,16 @@ def write_file(item, output_path):
 
         with open(output_path, "w") as f:
             f.write(data)
+
+
+def write_json(data, file_name):
+    """
+        Writes data to JSON
+
+        :param data: Dictionary to write to JSON
+        :param file_name: Name of the intended JSON file
+        :return: Nothing
+    """
+
+    with open(file_name, "w") as f:
+        json.dump(data, f)
